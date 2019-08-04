@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = 'gem-default'
-  spec.version       = '0.0.1'
+  spec.version       = '0.0.2'
   spec.authors       = ['Takashi Kokubun']
   spec.email         = ['takashikkbn@gmail.com']
 
