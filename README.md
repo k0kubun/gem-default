@@ -16,7 +16,8 @@ Run `gem default xxx` after `gem install xxx`.
 
 ### Before
 
-Usually, we cannot run a non-default gem (`pry` for example) with `bundle exec`.
+Usually, we cannot run a non-default gem (`pry` for example) with `bundle exec`
+if it's not written in Gemfile.
 
 ```bash
 $ cat Gemfile
