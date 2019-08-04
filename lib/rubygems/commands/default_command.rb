@@ -64,7 +64,7 @@ class Gem::Commands::DefaultCommand < Gem::Command
           from = File.join(spec.gem_dir, require_path)
           to = @ruby_lib_dir
           glob_path = '**/*.rb'
-        when /\A#{File.join(@gem_home, 'extensions')}/
+        when /\A#{Regexp.escape(File.join(@gem_home, 'extensions'))}/
           from = require_path
           to = @ruby_arch_dir
           glob_path = "**/*.#{@dlext}"
@@ -74,7 +74,7 @@ class Gem::Commands::DefaultCommand < Gem::Command
 
         files = Dir.glob(File.join(from, glob_path)).select(&File.method(:file?)).map! do |path|
           # delete_prefix is from Ruby 2.5 and too new
-          path.sub(/\A#{from}/, '')
+          path.sub(/\A#{Regexp.escape(from)}/, '')
         end.sort!
         copy_files(files, from: from, to: to)
       end
